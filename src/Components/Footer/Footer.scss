@@ -1,0 +1,132 @@
+// Scss area starts from here
+@mixin baseGrid($gtc, $gap, $ml) {
+  display: grid;
+  grid-template-columns: $gtc;
+  gap: $gap;
+  margin-left: $ml;
+}
+
+@mixin baseFlex($gap, $ml) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: $gap;
+  margin-left: $ml;
+}
+
+.footer_section {
+  background-image: url("../../images/footer-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 4rem 0;
+}
+
+.footer_container {
+  @include baseFlex("", "");
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+// Footer left starts from here
+.footer_left {
+  @include baseFlex(6rem, "");
+}
+
+.footer_left_location_contact {
+  @include baseFlex("", "");
+  flex-direction: column;
+  gap: 2.5rem;
+  cursor: pointer;
+}
+
+.footer_left_contact {
+  @include baseFlex("", "");
+  flex-direction: column;
+}
+
+.footer_left_location {
+  @include baseFlex(2rem, "");
+  cursor: pointer;
+}
+
+.footer_left_contact_phone {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  cursor: pointer;
+}
+
+.footer_left_contact_email {
+  @extend .footer_left_contact_phone;
+  cursor: pointer;
+}
+
+.footer_mail {
+  color: var(--color-bg);
+}
+
+.footer_socials svg:hover {
+  transform: scale(1.3);
+}
+// footer workdays starts from here
+.footer_left_workdays_social {
+  @extend .footer_left_location_contact;
+  cursor: pointer;
+}
+
+.footer_left_workdays_time {
+  @extend .footer_left_contact_phone;
+  cursor: pointer;
+}
+
+.footer_left_workdays_hour {
+  @extend .footer_left_contact_phone;
+  cursor: pointer;
+}
+
+.footer_left_social {
+  @extend .footer_left_contact_phone;
+  cursor: pointer;
+}
+
+.footer_socials {
+  @extend .footer_left_contact_phone;
+  gap: 1rem;
+  cursor: pointer;
+  svg {
+    color: var(--color-bg);
+  }
+}
+.footer_right_logo img {
+  width: 20rem;
+}
+
+//footer workdays ends here
+
+// Footer left ends here
+
+// Responsive area starts from here
+/*Media queries for Tablet DEVICES ----->>> */
+@media screen and (max-width: 985px) {
+  .footer_right_logo {
+    margin-top: 3rem;
+  }
+}
+
+/*Media queries for Mobile DEVICES ----->>> */
+@media screen and (max-width: 770px) {
+  .footer_left {
+    flex-direction: column;
+    gap: 4rem;
+  }
+
+  .footer_left_location_contact {
+    gap: 1rem;
+  }
+  .quickLinks_container {
+    margin-bottom: 2rem;
+  }
+}
+// Responsive area ends here

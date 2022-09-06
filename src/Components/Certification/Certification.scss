@@ -1,0 +1,92 @@
+// Scss Starts from here
+@mixin baseFlex($gap, $ml) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+  margin-left: $ml;
+}
+
+@mixin baseGrid($gtc, $gap, $ml) {
+  display: grid;
+  grid-template-columns: $gtc;
+  gap: $gap;
+  margin-left: $ml;
+}
+
+@mixin baseWidth($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+// Scss ends here
+
+// All css starts from here
+.certification_section {
+  width: 75%;
+  margin-top: 16vh;
+  @include baseGrid(auto auto, 6.7rem, 8rem);
+}
+
+.certification_item_img img {
+  @include baseWidth(500px, 350px);
+  cursor: pointer;
+}
+
+.certification_item_img img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.9);
+}
+
+.certification_item_content {
+  @include baseFlex(2rem, "");
+}
+
+.certification_title h4 {
+  color: var(--color-primary-variant);
+}
+
+.certification_desc p {
+  margin: 0 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+// Responsive area starts from here
+/*Media queries for Tablet DEVICES ----->>> */
+@media screen and (max-width: 1350px) {
+  .certification_section {
+    @include baseGrid(auto, "", "");
+  }
+
+  .certification_item_img img {
+    @include baseWidth(100%, 350px);
+  }
+
+  .certification_container {
+    margin-bottom: -3rem;
+  }
+
+  .certification_item_content {
+    @include baseFlex(1rem, "");
+  }
+  .certification_title {
+    margin-top: 1.5rem;
+  }
+}
+
+/*Media queries for Mobile DEVICES ----->>> */
+@media screen and (max-width: 850px) {
+  .certification_section {
+    @include baseGrid(auto, "", 3rem);
+  }
+
+  .certification_item_img img {
+    @include baseWidth(100%, 350px);
+  }
+}
+// Responsive area ends here
+// All Css ends here
+
+// All css ends here

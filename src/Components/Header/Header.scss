@@ -1,0 +1,139 @@
+// /* All css starts from here */
+@mixin baseFlex() {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+@mixin setMarginLeft($ml) {
+  margin-left: $ml;
+}
+
+@mixin setGap($gap) {
+  gap: $gap;
+}
+
+.header {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  top: 0;
+  left: 0;
+  position: sticky;
+  z-index: 9;
+  background: var(--color-primary-variant);
+  border-bottom: 1px solid var(#444444);
+  @include baseFlex;
+}
+
+.headerContainer {
+  @include baseFlex;
+}
+
+// header left starts from here
+
+.header_left_location {
+  @include baseFlex;
+  @include setGap(0.5rem);
+  @include setMarginLeft(7.5rem);
+  cursor: pointer;
+}
+
+.location_address {
+  @include baseFlex;
+  ul li {
+    list-style-type: disc;
+  }
+}
+
+// header middle starts from here
+.header_middle {
+  @include baseFlex;
+  @include setGap(2rem);
+
+  .header_middle_phone {
+    @extend .header_left_location;
+    @include setMarginLeft(0rem);
+  }
+
+  .phone_text span:hover {
+    color: var(--color-bg);
+  }
+
+  .mail_text span:hover {
+    color: var(--color-bg);
+  }
+
+  .header_middle_email {
+    @extend .header_middle_phone;
+  }
+}
+
+// header right starts from here
+.header_right_social {
+  @extend .header_left_location;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg);
+  @include setGap(1.4rem);
+  padding: 0 6rem;
+  @include setMarginLeft(0.5rem);
+  height: 60px;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 20% 100%);
+  svg {
+    color: var(--color-primary);
+  }
+}
+
+// /* responsive area starts from here */
+
+@mixin setResponsive($gap, $padding, $ml, $fos) {
+  @include setGap($gap);
+  padding: $padding;
+  @include setMarginLeft($ml);
+  font-size: $fos;
+}
+
+// /*Media queries for desktop DEVICES ----->>> */
+@media screen and (max-width: 1050px) {
+  .header_left_location {
+    @include setMarginLeft(1rem);
+  }
+
+  .header_middle {
+    @include setGap(1rem);
+  }
+}
+
+// /*Media queries for tablet DEVICES ----->>> */
+@media screen and (max-width: 950px) {
+  .header_right_social {
+    @include setResponsive(0.4rem, 0 2rem, -0.5rem, 0rem);
+  }
+}
+
+// /*Media queries for mobile DEVICES ----->>> */
+@media screen and (max-width: 670px) {
+  .header_right_social {
+    @include setResponsive(0.5rem, 0 1rem, 0.3rem, 0rem);
+  }
+}
+
+// /*Media queries for small DEVICES ----->>> */
+@media screen and (max-width: 520px) {
+  .header_left_location {
+    @include setMarginLeft(0.3rem);
+  }
+
+  .header_right_social {
+    @include setResponsive(0.3rem, 0 0.7rem, 0.1rem, 0rem);
+  }
+
+  .header_middle {
+    display: none;
+  }
+}
+
+// /* responsive area ends here */
+
+// /* All css ends here */

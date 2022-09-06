@@ -1,0 +1,145 @@
+// Scss area starts from here
+@mixin commonImgSize {
+  height: 490px;
+  width: 100%;
+}
+
+@mixin baseFlex($gap, $ml) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+  margin-left: $ml;
+}
+
+@mixin baseGrid($gtc, $gap, $ml) {
+  display: grid;
+  grid-template-columns: $gtc;
+  gap: $gap;
+  margin-left: $ml;
+}
+
+@mixin overlayBtn($display) {
+  display: $display;
+}
+
+@mixin baseOverlay {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: var(--color-bg);
+  opacity: 0;
+  @include baseTransition;
+}
+
+@mixin baseTransition {
+  transition: all 0.5s ease;
+}
+
+// Scss area ends here
+
+// All Css Starts from here
+.quickLinks_section {
+  margin-top: 16vh;
+  width: 100%;
+  @include baseGrid(auto auto auto, "", "");
+}
+
+.quickLinks_container {
+  position: relative;
+}
+
+.quickLinks_container:hover::after {
+  width: 100%;
+  opacity: 0.5;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+#quickLinks_item_bg_img {
+  position: relative;
+  cursor: pointer;
+}
+
+.quickLinks_icons img {
+  width: 5rem;
+}
+
+.quickLinks_container:hover #quickLinks_item_bg_img img {
+  border-radius: 30px;
+}
+
+.quickLinks_container:hover .quickLinks_btn button {
+  @include overlayBtn(block);
+}
+
+.quickLinks_container:hover .quickLinks_icons img {
+  @include overlayBtn(none);
+}
+
+.quickLinks_container:hover {
+  border-radius: 30px;
+}
+
+#quickLinks_item_bg_img img {
+  @include commonImgSize;
+  z-index: 9;
+}
+
+.quickLinks_container::after {
+  @include baseOverlay;
+}
+
+.quickLinks_item_content {
+  @include baseTransition;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  @include baseFlex(2.5rem, "");
+}
+
+.quickLinks_btn button {
+  @include overlayBtn(none);
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+}
+.quickLinks_btn button:hover {
+  background-color: var(--color-primary);
+}
+
+.quickLinks_desc h6 {
+  margin: 0 -3.5rem;
+  text-align: center;
+}
+
+// Responsive area starts from here
+/*Media queries for Tablet DEVICES ----->>> */
+@media screen and (max-width: 1010px) {
+  .quickLinks_section {
+    @include baseGrid(auto auto, "", "");
+  }
+
+  .quickLinks_container {
+    margin-bottom: 1rem;
+  }
+}
+
+/*Media queries for Mobile DEVICES ----->>> */
+@media screen and (max-width: 600px) {
+  .quickLinks_section {
+    @include baseGrid(auto, "", "");
+  }
+
+  .quickLinks_container {
+    margin-bottom: 2rem;
+  }
+}
+// Responsive area ends here
+// All Css ends here

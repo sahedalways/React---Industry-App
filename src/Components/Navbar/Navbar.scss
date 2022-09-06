@@ -1,0 +1,142 @@
+// // Library.scss
+@mixin baseFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin commonCss($position, $top, $right, $width, $height, $zi, $bg) {
+  position: $position;
+  top: $top;
+  right: $right;
+  width: $width;
+  height: $height;
+  z-index: $zi;
+  background: $bg;
+}
+
+@mixin display($df, $fcl, $fr, $jcc, $alic, $gap) {
+  display: $df;
+  flex-direction: $fcl;
+  flex-direction: $fr;
+  justify-content: $jcc;
+  align-items: $alic;
+  gap: $gap;
+}
+
+// All css starts from here
+
+// logo area starts from here
+.logo img {
+  width: 18rem;
+}
+
+// navbar area starts from here
+nav {
+  @include commonCss("", "", 0, 100%, 80px, 9, transparent);
+
+  position: absolute;
+  margin-top: 90px;
+  line-height: 40px;
+  padding: 10px 0px;
+}
+
+.navigation {
+  @include baseFlex;
+}
+
+.hover_on_nav img {
+  opacity: 0;
+  position: absolute;
+  top: 5px;
+  margin-left: 0.5rem;
+}
+
+.nav_list {
+  @include display(flex, "", "", "", center, "");
+  margin-bottom: 0;
+  column-gap: 3rem;
+
+  .nav_item:hover {
+    a {
+      color: var(--color-bg);
+    }
+    .hover_on_nav img {
+      opacity: 1;
+    }
+  }
+}
+
+.barIcon {
+  display: none;
+  svg {
+    color: var(--color-bg);
+  }
+}
+
+.navbarChange {
+  background-color: var(--color-primary);
+  margin-top: 3.5rem;
+  border-bottom: 2px solid var(--color-bg);
+}
+
+.colorChange a {
+  color: var(--color-primary-variant);
+}
+
+// /*============Responsive arae starts from here=============*/
+
+@media only screen and (max-width: 992px) {
+  nav {
+    margin-top: 70px;
+  }
+
+  .barIcon {
+    display: block;
+    z-index: 100;
+    margin-top: -0.7rem;
+    background: var(--color-bg);
+    padding: 3px;
+  }
+
+  .colorChange a {
+    color: var(--color-primary);
+  }
+
+  .barIcon svg {
+    font-size: 2rem;
+  }
+
+  .flex {
+    display: none;
+  }
+
+  .nav_list {
+    @include commonCss(
+      absolute,
+      4.5rem,
+      0,
+      100%,
+      75vh,
+      99,
+      var(--color-primary-variant)
+    );
+    padding: 50px;
+    @include display(flex, column, "", "", "", 1rem);
+  }
+
+  .nav_item a {
+    font-size: 0.9rem;
+  }
+
+  .logo img {
+    width: 14rem;
+  }
+
+  .hover_on_nav img {
+    display: none;
+  }
+}
+
+// /*============Responsive arae ends here=============*/
+// All css ends here

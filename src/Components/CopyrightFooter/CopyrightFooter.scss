@@ -1,0 +1,16 @@
+.copyrightFooter_section {
+  background-color: var(--color-primary-variant);
+}
+
+.copyright_footer_copright_text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+
+  h6 {
+    font-size: 11px;
+    color: #7b7b7b;
+  }
+}

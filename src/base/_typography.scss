@@ -1,0 +1,135 @@
+@mixin setTypography($size, $family, $weight, $color) {
+  font-size: $size;
+  font-family: $family;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin fs($fs) {
+  font-size: $fs;
+}
+
+i {
+  a {
+    @include setTypography(18px, "Roboto", 700, var(--color-primary));
+  }
+}
+
+h1 {
+  @include setTypography(100px, "Poppins", 800, "");
+}
+
+h2 {
+  @include setTypography(40px, "Poppins", 500, "");
+  letter-spacing: 0.8rem;
+}
+
+h3 {
+  @include setTypography(40px, "Roboto", 700, var(--color-primary-variant));
+}
+
+h4 {
+  @include setTypography(40px, "Roboto", 700, var(--color-primary));
+  font-size: 26px;
+}
+
+h5 {
+  @extend p;
+  font-weight: 400;
+}
+
+h6 {
+  @include setTypography(16px, "Mulish", 500, var(--color-primary));
+  font-weight: 600;
+
+}
+
+p {
+  @include setTypography(16px, "Mulish", 500, var(--color-primary-variant));
+}
+
+span {
+  @include setTypography(14px, "Mulish", 700, "");
+}
+a {
+  @include setTypography(18px, "Roboto", 700, var(--color-primary));
+}
+
+button {
+  @include setTypography(20px, "Mulish", 700, var(--color-primary));
+}
+
+// Responsive area starts from here
+
+/*Media queries for large DEVICES ----->>> */
+@media screen and (max-width: 1290px) {
+  h3 {
+    @include fs(30px);
+  }
+}
+
+/*Media queries for desktop DEVICES ----->>> */
+@media screen and (max-width: 1150px) {
+  h1 {
+    @include fs(70px);
+  }
+
+  h2 {
+    @include fs(20px);
+  }
+
+  button {
+    @include fs(15px);
+  }
+}
+
+/*Media queries for tablet DEVICES ----->>> */
+@media screen and (max-width: 950px) {
+  span {
+    @include fs(12px);
+  }
+
+  h1 {
+    @include fs(50px);
+  }
+
+  h2 {
+    @include fs(15px);
+  }
+
+  button {
+    @include fs(10px);
+  }
+}
+
+/*Media queries for mobile DEVICES ----->>> */
+@media screen and (max-width: 670px) {
+  span {
+    @include fs(9px);
+  }
+
+  h1 {
+    @include fs(40px);
+  }
+
+  h2 {
+    @include fs(10px);
+    letter-spacing: 0.5rem;
+  }
+}
+
+/*Media queries for extra small DEVICES ----->>> */
+@media screen and (max-width: 550px) {
+  h1 {
+    @include fs(30px);
+  }
+
+  h2 {
+    @include fs(10px);
+    letter-spacing: 0.3rem;
+  }
+
+  button {
+    @include fs(8px);
+  }
+}

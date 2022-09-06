@@ -1,0 +1,15 @@
+@mixin baseFlex($gap, $ml) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: $gap;
+    margin-left: $ml;
+  }
+  
+  @mixin baseGrid($gtc, $gap, $ml) {
+    display: grid;
+    grid-template-columns: $gtc;
+    gap: $gap;
+    margin-left: $ml;
+  }

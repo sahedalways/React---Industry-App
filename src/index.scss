@@ -1,0 +1,128 @@
+// root imorted css starts from here
+@forward "./base/index";
+
+@mixin commonBtn($bg, $padding, $color) {
+  background-color: $bg;
+  padding: $padding;
+  color: $color;
+}
+
+@mixin commonBtnHover($br, $color, $bg) {
+  border-radius: $br;
+  color: $color;
+  background-color: $bg;
+}
+
+// All css starts from here
+
+body {
+  font-family: "Mulish", sans-serif;
+  color: var(--color-primary);
+  overflow-x: hidden;
+}
+
+.common_icon {
+  color: var(--color-bg);
+  svg {
+    font-size: 1rem;
+    cursor: pointer;
+  }
+}
+// General css starts from here
+
+.common_container {
+  width: var(--container-width-lg);
+  margin: 0 auto;
+}
+
+.common_btn_one {
+  @include commonBtn(var(--color-bg), 1rem 2.5rem, "");
+  border: 2px solid var(--color-bg);
+}
+
+.common_btn_three {
+  @include commonBtn(var(--color-bg), 1rem 2.5rem, "");
+}
+
+.common_btn_two {
+  @include commonBtn(var(--color-primary), 1rem 2.5rem, var(--color-bg));
+  border: 2px solid var(--color-bg);
+}
+
+.common_btn_two:hover {
+  @include commonBtnHover(30px, var(--color-primary), var(--color-bg));
+  border: transparent;
+}
+
+.common_btn_three:hover {
+  @include commonBtn(transparent,"" , var(--color-primary));
+  border: 2px solid var(--color-primary);
+  border-radius: 30px;
+}
+
+.common_btn_one:hover {
+  @include commonBtnHover(30px, var(--color-bg), transparent);
+  border: 2px solid var(--color-bg);
+}
+
+.common_icon svg:hover {
+  color: var(--color-bg);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(360deg);
+}
+
+// General css ends here
+
+// Responsive area starts from here
+
+/*Media queries for MEDIUM DEVICES ----->>> */
+@media screen and (max-width: 1024px) {
+  .common_container {
+    width: var(--container-width-md);
+  }
+}
+
+// /*Media queries for mobile DEVICES ----->>> */
+@media screen and (max-width: 670px) {
+  .common_icon {
+    svg {
+      font-size: 0.7rem;
+    }
+  }
+
+  .common_container {
+    width: var(--container-width-sm);
+    right: 10%;
+  }
+
+  .common_btn_one {
+    @include commonBtn("", 0.7rem 1rem, "");
+    border: 2px solid var(--color-bg);
+  }
+
+  .common_btn_two {
+    @include commonBtn("", 0.7rem 1rem, "");
+  }
+
+  .common_btn_three {
+    @include commonBtn("", 0.7rem 1rem, "");
+  }
+}
+
+// /*Media queries for extra Small DEVICES ----->>> */
+@media screen and (max-width: 550px) {
+  .common_btn_one {
+    @include commonBtn("", 0.5rem 0.7rem, "");
+  }
+
+  .common_btn_two {
+    @include commonBtn("", 0.5rem 0.7rem, "");
+  }
+
+  .common_btn_three {
+    @include commonBtn("", 0.7rem 1rem, "");
+  }
+}
+// Responsive area ends here
+//all css ends here

@@ -1,0 +1,121 @@
+// Scss area starts from here
+
+@mixin baseFlex($gap, $ml) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: $gap;
+  margin-left: $ml;
+}
+
+@mixin marginLeft($ml) {
+  margin-left: $ml;
+}
+
+@mixin baseGrid($gtc, $gap, $ml) {
+  display: grid;
+  grid-template-columns: $gtc;
+  gap: $gap;
+  margin-left: $ml;
+}
+// Scss area ends here
+
+// All css starts from here
+.product_categories_section {
+  margin-top: 16vh;
+  background-image: url("../../images/product-categories-background-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
+
+.product_categories_container {
+  width: 85%;
+  @include marginLeft(12rem);
+  padding: 9rem 0;
+}
+
+.product_categories_img img {
+  width: 13rem;
+}
+
+.product_categories_img img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px -5px 10px 0px rgba(236, 225, 225, 0.9);
+}
+
+.product_categories_title h4 {
+  font-size: 24px;
+}
+
+.product_categories_side_title {
+  transform: rotate(-180deg);
+  writing-mode: vertical-lr;
+  position: absolute;
+  top: 12%;
+  left: 1rem;
+  h2 {
+    letter-spacing: 1.6rem;
+  }
+}
+
+.product_categories_btn {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -2rem;
+}
+
+.product_categories_btn button:hover {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.product_categories_contents {
+  @include baseFlex(1.5rem, "");
+}
+
+.product_categories_desc h6 {
+  margin: 0 1.7rem;
+  text-align: center;
+}
+
+// // Responsive area starts from here
+// /*Media queries for desktop DEVICES ----->>> */
+@media screen and (max-width: 1150px) {
+  .product_categories_side_title {
+    h2 {
+      letter-spacing: 1.5rem;
+    }
+  }
+
+  .product_categories_container {
+    @include marginLeft(9rem);
+  }
+}
+
+// /*Media queries for small mobile DEVICES ----->>> */
+@media screen and (max-width: 950px) {
+  .product_categories_side_title {
+    transform: rotate(0deg);
+    writing-mode: horizontal-tb;
+    position: relative;
+    text-align: center;
+    margin: 7rem 0 -5rem 0rem;
+    padding-top: 3rem;
+
+    h2 {
+      letter-spacing: 0.8rem;
+    }
+  }
+
+  .product_categories_container {
+    @include marginLeft(3.3rem);
+  }
+}
+
+// // Responsive area ends here
+// // All Css ends here
