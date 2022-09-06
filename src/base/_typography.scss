@@ -41,7 +41,6 @@ h5 {
 h6 {
   @include setTypography(16px, "Mulish", 500, var(--color-primary));
   font-weight: 600;
-
 }
 
 p {
@@ -131,5 +130,12 @@ button {
 
   button {
     @include fs(8px);
+  }
+}
+
+/*Media queries for extra DEVICES ----->>> */
+@media screen and (max-width: 600px) {
+  h3 {
+    @include fs(20px);
   }
 }

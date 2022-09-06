@@ -129,4 +129,11 @@
     margin-bottom: 2rem;
   }
 }
+
+/*Media queries for small mobile DEVICES ----->>> */
+@media screen and (max-width: 770px) {
+  .footer_right_logo img {
+    width: 100%;
+  }
+}
 // Responsive area ends here

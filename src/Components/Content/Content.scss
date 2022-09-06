@@ -1,4 +1,4 @@
-// Scss started from here
+// Scss Starts from here
 @mixin baseFlex($gap, $ml) {
   display: flex;
   flex-direction: column;
@@ -13,13 +13,18 @@
   margin-left: $ml;
 }
 
-// All Css starts from here
-#content {
+@mixin baseWidth($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+#content_section {
   margin-top: 16vh;
 }
 
-.content__container {
-  @include baseGrid(50% 50%, "", "");
+.content_container {
+  width: 90%;
+  @include baseGrid(50% 50%, 5.7rem, "");
 }
 
 .content__orion__image img {
@@ -28,84 +33,44 @@
   margin-left: 4rem;
 }
 
-.content__item {
+.content_section_left {
   @include baseFlex(2.5rem, "");
-  padding: 0 2rem;
-}
-
-// Responsive area starts from here
-
-/*Media queries for large DEVICES ----->>> */
-@media screen and (max-width: 1350px) {
-  .content__container {
-    @include baseGrid(50% 50%, 2rem, "");
-  }
-
-  .content__item {
-    @include baseFlex(2.5rem, "");
-  }
-
-  .content__orion__image img {
-    margin-left: 1rem;
-  }
 }
 
 /*Media queries for desktop DEVICES ----->>> */
-@media screen and (max-width: 1290px) {
-  .content__item {
-    @include baseFlex(1.5rem, "");
-  }
-
-  .content__container {
-    @include baseGrid(55% "", 3rem, "");
+@media screen and (max-width: 1200px) {
+  .content_container {
+    @include baseGrid(50% 50%, 8.7rem, "");
   }
 }
 
-@media screen and (max-width: 1215px) {
-  .content__item {
-    @include baseFlex(0.1rem, "");
+@media screen and (max-width: 990px) {
+  .content_container {
+    @include baseGrid(100%, 8.7rem, "");
   }
 
-  .content__container {
-    @include baseGrid(60% "", 2rem, "");
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .content__container {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  .content__item {
-    margin-top: 3rem;
+  .content_section_left {
+    margin-top: -5rem;
+    text-align: center;
   }
   p {
     margin: 1rem 0 1.5rem;
   }
-  .content__orion {
-    margin-bottom: 3rem;
+
+  .content__orion__image img {
+    margin-left: 2rem;
   }
 }
 
 /*Media queries for SMALL DEVICES ----->>> */
 @media screen and (max-width: 600px) {
-  .about__orion {
-    width: 65%;
+  .content_section_left p {
+    margin-top: -1.5rem;
   }
 
-  .about__content {
-    text-align: center;
-  }
-
-  .about__content p {
-    margin: 1.5rem 0;
-  }
-  #content {
-    margin-top: 3rem;
-  }
-
-  .content__orion {
-    margin-bottom: 3rem;
+  .content__orion__image img {
+    width: 100%;
+    margin-left: 1rem;
   }
 }
 

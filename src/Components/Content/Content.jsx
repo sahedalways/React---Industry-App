@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import contentImg from "../../images/one-step-img.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Container } from "react-bootstrap";
 import "./Content.scss";
 
 const Content = () => {
@@ -19,15 +20,16 @@ const Content = () => {
 
   return (
     <>
-      <section id="content">
-        <div className="container content__container">
-          <div className="content__orion" data-aos="fade-right">
-            {/* content left content starts from here */}
-            <div className="content__item">
-              <div className="content__item__title">
+      <section id="content_section">
+        <Container>
+          <div className="content_container">
+            {/* contents left content starts from here */}
+            <div className="content_section_left">
+              <div className="content__content__title">
                 <h3>Your One Stop Safety Shop</h3>
               </div>
-              <div className="content__item__desc">
+
+              <div className="content__content__desc">
                 <p>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit.
                   Numquam, itaque atque possimus tempore quasi officiis, commodi
@@ -47,22 +49,30 @@ const Content = () => {
                 </p>
               </div>
 
-              <div className="content__item__btn">
-                <button className="common_btn_one">Learn More</button>
-                <button className="common_btn_two">Get In Touch</button>
+              <div className="content__content__btn">
+                <button className="common_btn_one" data-aos="fade-right">
+                  Learn More
+                </button>
+                <button className="common_btn_two" data-aos="fade-left">
+                  Get In Touch
+                </button>
               </div>
+              {/* contents left content starts from here */}
             </div>
 
-            {/* content left ends here */}
+            <div className="content_section_right">
+              {/* About right Image starts from here */}
+              <div className="content__orion__image">
+                <img
+                  data-aos="zoom-in-up"
+                  src={contentImg}
+                  alt="Content_Image"
+                />
+              </div>
+              {/* content right Image ends here */}
+            </div>
           </div>
-          {/* content right Image starts from here */}
-
-          <div className="content__orion__image">
-            <img data-aos="zoom-in-up" src={contentImg} alt="content_Image" />
-          </div>
-
-          {/* content right image ends here */}
-        </div>
+        </Container>
       </section>
     </>
   );

@@ -117,5 +117,15 @@
   }
 }
 
+// /*Media queries for small mobile DEVICES ----->>> */
+@media screen and (max-width: 350px) {
+  .product_categories_container {
+    @include marginLeft(1rem);
+  }
+
+  .product_categories_btn {
+    margin-top: -5rem;
+  }
+}
 // // Responsive area ends here
 // // All Css ends here
